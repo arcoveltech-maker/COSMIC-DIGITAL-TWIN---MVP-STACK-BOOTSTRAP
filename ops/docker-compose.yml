@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  orchestrator:
+    build:
+      context: ../
+      dockerfile: orchestrator/Dockerfile
+    container_name: orchestrator_1
+    volumes:
+      - ../orchestrator:/app
+      - ../phases:/app/phases
+      - ../kpi:/app/kpi
+      - ../storage:/app/storage
+      - ../health:/app/health
+      - ../registry:/app/registry
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ../
+      dockerfile: api/Dockerfile
+    container_name: api_1
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    container_name: prometheus_1
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:10.1.5
+    container_name: grafana_1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/dashboards:/etc/grafana/dashboards
+    restart: unless-stopped

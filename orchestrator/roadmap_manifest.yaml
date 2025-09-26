@@ -1,0 +1,35 @@
+# Roadmap manifest for the Cosmic Digital Twin MVP
+# Defines phases, scripts, KPIs, and rollback hooks
+
+phases:
+  "1":
+    name: "MVP Twin"
+    script: "phases/deploy_phase1_mvp_twin.py"
+    rollback_script: "phases/rollback_phase1.py"
+    kpi_set: "kpi/phase1_kpis.json"
+    risk: "low"
+    approved: true
+
+  "2":
+    name: "Life & Worlds"
+    script: "phases/deploy_phase2_life_and_worlds.py"
+    rollback_script: "phases/rollback_phase2.py"
+    kpi_set: "kpi/phase2_kpis.json"
+    risk: "medium"
+    approved: true
+
+  "3":
+    name: "Civilizations Layer"
+    script: "phases/deploy_phase3_civilizations.py"
+    rollback_script: "phases/rollback_phase3.py"
+    kpi_set: "kpi/phase3_kpis.json"
+    risk: "high"
+    approved: true
+
+  "4":
+    name: "Refinement & UQ"
+    script: "phases/deploy_phase4_refinement.py"
+    rollback_script: "phases/rollback_phase4.py"
+    kpi_set: "kpi/phase4_kpis.json"
+    risk: "low"
+    approved: true

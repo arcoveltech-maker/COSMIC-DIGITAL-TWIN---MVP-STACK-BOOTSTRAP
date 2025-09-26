@@ -1,0 +1,14 @@
+{
+  "data_health": {
+    "agent_registry_entries_min": 10
+  },
+  "model_fidelity": {
+    "civilization_model_accuracy_target": 0.80
+  },
+  "scalability": {
+    "agent_simulation_throughput_target": 1000
+  },
+  "ethics": {
+    "covenant_checks_pass_target": 1.0
+  }
+}

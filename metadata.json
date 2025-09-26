@@ -1,5 +1,4 @@
 {
   "name": "Cosmic Digital Twin - Mission Control",
-  "description": "An interactive mission control dashboard that visually explains the architecture and components of the Cosmic Digital Twin MVP stack, featuring a dynamic 3D interface.",
-  "requestFramePermissions": []
+  "description": "An interactive mission control dashboard that visually explains the architecture and components of the Cosmic Digital Twin MVP stack, featuring a dynamic 3D interface."
 }

@@ -1,0 +1,15 @@
+{
+  "model_fidelity": {
+    "refinement_accuracy_gain_target": 0.05
+  },
+  "uncertainty": {
+    "confidence_interval_target": 0.95,
+    "coverage_probability_target": 0.90
+  },
+  "scalability": {
+    "uq_runtime_overhead_max": 1.5
+  },
+  "ethics": {
+    "covenant_checks_pass_target": 1.0
+  }
+}
