@@ -1,5 +1,5 @@
 {
-  "name": "Cosmic Digital Twin - MVP Stack Bootstrap",
-  "description": "An interactive dashboard that visually explains the architecture and components of the Cosmic Digital Twin MVP stack, making the technical bootstrap process clear and accessible.",
+  "name": "Cosmic Digital Twin - Mission Control",
+  "description": "An interactive mission control dashboard that visually explains the architecture and components of the Cosmic Digital Twin MVP stack, featuring a dynamic 3D interface.",
   "requestFramePermissions": []
 }

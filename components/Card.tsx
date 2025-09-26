@@ -8,10 +8,10 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, icon, children }) => {
   return (
-    <div className="bg-primary-900 p-6 rounded-lg border border-primary-800 hover:border-accent-500/50 transition-colors duration-300 transform hover:-translate-y-1">
+    <div className="card rounded-lg p-6 shadow-lg h-full">
       <div className="flex items-center mb-4">
-        <div className="text-accent-400 mr-4">{icon}</div>
-        <h3 className="text-xl font-bold text-white">{title}</h3>
+        {icon}
+        <h3 className="ml-4 text-xl font-bold text-slate-100">{title}</h3>
       </div>
       <p className="text-slate-400">
         {children}

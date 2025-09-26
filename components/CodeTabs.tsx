@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import CodeBlock from './CodeBlock';
 
 interface Tab {
   id: string;
@@ -19,25 +18,27 @@ const CodeTabs: React.FC<CodeTabsProps> = ({ tabs }) => {
 
   return (
     <div className="w-full">
-      <div className="border-b border-primary-700 mb-4">
+      <div className="border-b border-cosmic-blue-700 mb-4">
         <nav className="-mb-px flex space-x-4" aria-label="Tabs">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`${
+              className={`tab-button text-sm font-medium py-2 px-4 border-b-2 ${
                 activeTab === tab.id
-                  ? 'border-accent-500 text-accent-400'
-                  : 'border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-500'
-              } whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm transition-colors`}
+                  ? 'active text-accent-cyan-400 border-accent-cyan-400'
+                  : 'text-slate-400 border-transparent hover:text-slate-200'
+              }`}
             >
               {tab.label}
             </button>
           ))}
         </nav>
       </div>
-      <div>
-        {activeTabData && <CodeBlock code={activeTabData.content} language={activeTabData.language} />}
+      <div className="code-block rounded-lg p-4 text-xs font-mono text-slate-300 overflow-x-auto max-h-96">
+        {activeTabData && (
+          <pre><code>{activeTabData.content.trim()}</code></pre>
+        )}
       </div>
     </div>
   );

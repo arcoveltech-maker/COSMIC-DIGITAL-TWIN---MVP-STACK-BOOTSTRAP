@@ -4,54 +4,93 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cosmic Digital Twin - MVP Stack Bootstrap</title>
+    <title>Cosmic Digital Twin - Mission Control</title>
 
-    <!-- SEO & Metadata -->
-    <meta name="description" content="An interactive dashboard for the Cosmic Digital Twin MVP stack, designed for real-time digital twin orchestration." />
-    <meta property="og:title" content="Cosmic Digital Twin - MVP Stack Bootstrap" />
-    <meta property="og:description" content="An interactive dashboard for the Cosmic Digital Twin MVP stack, designed for real-time digital twin orchestration." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/preview.png" />
-    
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#0d1120" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com" defer></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+        background-color: #0d1120;
+      }
+      .card {
+        background: rgba(17, 24, 39, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(55, 65, 81, 0.5);
+        transition: all 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(6, 182, 212, 0.7);
+        box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.1), 0 4px 6px -2px rgba(6, 182, 212, 0.05);
+      }
+      .code-block {
+        background-color: #0d1120;
+        border: 1px solid #374151;
+      }
+      .section-title {
+         text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+      }
+      #cosmic-canvas-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+       .tab-button {
+        transition: all 0.2s ease-in-out;
+      }
+      .tab-button.active {
+        color: #22d3ee;
+        border-bottom-color: #22d3ee;
+      }
+    </style>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'primary': {
+              'cosmic-blue': {
                 '950': '#0d1120',
                 '900': '#111827',
                 '800': '#1f2937',
                 '700': '#374151',
               },
-              'accent': {
+              'accent-cyan': {
                 '400': '#22d3ee',
                 '500': '#06b6d4',
               }
             },
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'fade-in': 'fadeIn 1s ease-in-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0, transform: 'translateY(10px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
             }
           }
         }
       }
     </script>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
-  }
-}
-</script>
-</head>
-  <body class="bg-primary-950">
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://aistudiocdn.com/react@^19.1.1/",
+          "react": "https://aistudiocdn.com/react@^19.1.1",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="cosmic-canvas-bg"></canvas>
     <div id="root" role="main"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
